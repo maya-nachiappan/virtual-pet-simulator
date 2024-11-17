@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C2587352CE9A3FC009BD0CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C2587342CE9A3FC009BD0CC /* main.cpp */; };
+		6C25873D2CE9A7BC009BD0CC /* pet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C25873B2CE9A7BC009BD0CC /* pet.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6C2587312CE9A3FC009BD0CC /* virtual pet simulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "virtual pet simulator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2587342CE9A3FC009BD0CC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C25873B2CE9A7BC009BD0CC /* pet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pet.cpp; sourceTree = "<group>"; };
+		6C25873C2CE9A7BC009BD0CC /* pet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pet.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				6C2587342CE9A3FC009BD0CC /* main.cpp */,
+				6C25873B2CE9A7BC009BD0CC /* pet.cpp */,
+				6C25873C2CE9A7BC009BD0CC /* pet.hpp */,
 			);
 			path = "virtual pet simulator";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2587352CE9A3FC009BD0CC /* main.cpp in Sources */,
+				6C25873D2CE9A7BC009BD0CC /* pet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
