@@ -43,11 +43,15 @@ int main() {
            displayStatus(myPet);
 
            // Check for win/lose conditions
-           if (myPet.health <= 0) {
+           if (myPet.health <= 0) 
+           {
+               cout << endl;
                cout << myPet.name << " has died. Game over!" << endl; // User loses if Pet dies when health reaches 0
                break;
            }
-           if (myPet.happiness >= 100 && myPet.health >= 100) {
+           if (myPet.happiness >= 100 && myPet.health >= 100) 
+           {
+               cout << endl;
                cout << myPet.name << " is very happy and healthy! You are a great owner, congratulations!!" << endl; // User wins if pet happiness and health reaches 100
                break;
            }

@@ -17,6 +17,7 @@ namespace PetSim {
 // Displays the status of each pet factor
 void displayStatus(const Pet &pet) 
 {
+    cout << endl;
     cout << "--- " << pet.name << "'s Status ---" << endl;
     cout << "Hunger: " << pet.hunger << endl;
     cout << "Happiness: " << pet.happiness << endl;
@@ -27,7 +28,7 @@ void displayStatus(const Pet &pet)
 // function menu for performing actions with pet
 void performAction(Pet &pet, Item inventory[], int inventorySize) {
     int choice;
-
+    cout << endl;
     cout << "Choose an action to perform:" << endl;
     cout << "1. Feed " << pet.name << endl;
     cout << "2. Play with " << pet.name << endl;
@@ -95,6 +96,7 @@ void performAction(Pet &pet, Item inventory[], int inventorySize) {
         default:
             cout << "Invalid menu choice. Please try again."<< endl;
     }
+    cin.clear();
 }
 
 // Decay the pet's attributes over time
@@ -118,16 +120,19 @@ void randomEvent(Pet &pet)
     switch (event) 
     {
         case 0:
-            cout << pet.name << " caught a bug! " << pet.name << " gains happiness." << endl;
+            cout << endl;
+            cout << pet.name << " caught an squirrel! " << pet.name << " gains happiness." << endl;
             pet.happiness += 10;
             if (pet.happiness > 100) pet.happiness = 100;
             break;
         case 1:
-            cout << pet.name << " caught a mild illness and feels sick." << pet.name<< "'s health has decreased" << endl;
+            cout << endl;
+            cout << pet.name << " caught a mild illness and feels sick. " << pet.name<< "'s health has decreased" << endl;
             pet.health -= 10;
             break;
         case 2:
-            cout << pet.name << " found a comfortable spot to rest in the sun." <<pet.name <<"'s energy and happiness has increased." << endl;
+            cout << endl;
+            cout << pet.name << " found a comfortable spot to rest in the sun. " <<pet.name <<"'s energy and happiness has increased." << endl;
             pet.energy += 10;
             pet.happiness +=10;
             if (pet.energy > 100) pet.energy = 100;
@@ -149,6 +154,7 @@ void saveGame(const Pet &pet, const Item inventory[], int inventorySize)
         saveFile << inventory[i].name << " " << inventory[i].effect << endl;
     }
     saveFile.close(); // closes file
+    cout << endl;
     cout << "Game saved successfully. Come back to play with "<< pet.name<<" soon!" << endl;
 }
 
@@ -161,6 +167,7 @@ bool loadGame(Pet &pet, Item inventory[], int inventorySize) {
             loadFile >> inventory[i].name >> inventory[i].effect;
         }
         loadFile.close();
+        cout << endl;
         cout << "Game loaded successfully!" << endl;
         return true;
     }
