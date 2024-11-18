@@ -13,7 +13,8 @@
 using namespace std;
 using namespace PetSim;
 
-int main() {
+int main() 
+{
     srand(static_cast<unsigned>(time(0))); // Seed random number generator
     Pet myPet;
     char userChoice;
@@ -22,13 +23,14 @@ int main() {
     cout << "Welcome to the Virtual Pet Simulator!" << endl;
     cout << "Would you like to load a saved game? (y/n):" << endl;
     cin >> userChoice;
-    if (userChoice == 'y' || userChoice == 'Y') {
+    if (userChoice == 'y' || userChoice == 'Y') 
+    {
         if (!loadGame(myPet, inventory, inventorySize)) {
             cout << "You have no saved games. Starting a new game." << endl;
             userChoice = 'n';
         }
     }
-    if (userChoice == 'n' || userChoice == 'N') 
+    else if (userChoice == 'n' || userChoice == 'N')
     {
         cout << "What would you like to name your pet: ";
         cin >> myPet.name;
@@ -37,6 +39,12 @@ int main() {
         myPet.happiness = 50;
         myPet.health = 50;
         myPet.energy = 50;
+    }
+    else
+    {
+        cin.clear();
+        cout << "Invalid user input! please try again!" << endl;
+        main();
     }
     // Main game loop
        while (true) {

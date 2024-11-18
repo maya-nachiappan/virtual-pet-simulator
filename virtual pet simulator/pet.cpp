@@ -94,9 +94,11 @@ void performAction(Pet &pet, Item inventory[], int inventorySize) {
             cout << "Game saved. Goodbye!" << endl;
             exit(0);
         default:
-            cout << "Invalid menu choice. Please try again."<< endl;
+            cin.clear();
+            cout << "Invalid menu choice."<< endl;
+            exit(0);
+            
     }
-    cin.clear();
 }
 
 // Decay the pet's attributes over time
@@ -139,6 +141,7 @@ void randomEvent(Pet &pet)
             if (pet.happiness >100) pet.happiness = 100;
             break;
         default:
+            cin.clear();
             break;
     }
 }
