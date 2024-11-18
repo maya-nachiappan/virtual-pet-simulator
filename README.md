@@ -40,15 +40,15 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/maya-nachiappan/virtual-pet-simulator.git
-cd virtual-pet-simulator
+- git clone https://github.com/maya-nachiappan/virtual-pet-simulator.git
+- cd virtual-pet-simulator
 
 2. Compile the program:
-g++ -c pet.cpp -o pet.o
-g++ -c main.cpp -o main.o
-g++ pet.o main.o -o virtual_pet_simulator
+- g++ -c pet.cpp -o pet.o
+- g++ -c main.cpp -o main.o
+- g++ pet.o main.o -o virtual_pet_simulator
 
 3. Run the game:
-./virtual_pet_simulator
+- ./virtual_pet_simulator
 
 4. Enjoy!!
