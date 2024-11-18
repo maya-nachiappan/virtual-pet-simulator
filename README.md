@@ -52,3 +52,8 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
 - ./virtual_pet_simulator
 
 4. Enjoy!!
+
+
+## Demo
+<img width="1470" alt="Screenshot 2024-11-17 at 11 04 12 PM" src="https://github.com/user-attachments/assets/f6fafdc8-f887-48fe-9c43-6a0a4a71d7ad">
+[Watch the explanation here](https://drive.google.com/file/d/1OAtNK4HVuCBJCjskTGN3G3BaTwqZ6Z-i/view?usp=sharing)
