@@ -90,58 +90,66 @@ void performAction(Pet &pet, Item inventory[], int inventorySize) {
             break;
         case 5:
             saveGame(pet, inventory, inventorySize);
-            cout << "Game saved. Goodbye!\n";
+            cout << "Game saved. Goodbye!" << endl;
             exit(0);
         default:
-            cout << "Invalid choice. Try again.\n";
+            cout << "Invalid menu choice. Please try again."<< endl;
     }
 }
 
 // Decay the pet's attributes over time
-void decayAttributes(Pet &pet) {
+void decayAttributes(Pet &pet) 
+{
     pet.hunger -= 5;
     pet.happiness -= 3;
     pet.energy -= 2;
-
+    
+    // hunger and health cannot be negative, only empty
     if (pet.hunger < 0) pet.hunger = 0;
     if (pet.happiness < 0) pet.happiness = 0;
-    if (pet.hunger == 0 || pet.happiness == 0) pet.health -= 10;
+    if (pet.hunger == 0 || pet.happiness == 0) pet.health -= 10; // health decays if both hunger and happiness have decayed
 }
 
 // Trigger random events
-void randomEvent(Pet &pet) {
+void randomEvent(Pet &pet) 
+{
     int event = rand() % 3;
 
-    switch (event) {
+    switch (event) 
+    {
         case 0:
-            cout << pet.name << " caught a bug! " << pet.name << " gains happiness.\n";
+            cout << pet.name << " caught a bug! " << pet.name << " gains happiness." << endl;
             pet.happiness += 10;
             if (pet.happiness > 100) pet.happiness = 100;
             break;
         case 1:
-            cout << pet.name << " caught a mild illness. Health decreases.\n";
+            cout << pet.name << " caught a mild illness and feels sick." << pet.name<< "'s health has decreased" << endl;
             pet.health -= 10;
             break;
         case 2:
-            cout << pet.name << " found a comfortable spot to rest. Energy increases.\n";
+            cout << pet.name << " found a comfortable spot to rest in the sun." <<pet.name <<"'s energy and happiness has increased." << endl;
             pet.energy += 10;
+            pet.happiness +=10;
             if (pet.energy > 100) pet.energy = 100;
+            if (pet.happiness >100) pet.happiness = 100;
             break;
         default:
             break;
     }
 }
 
-// Save the pet's current state to a file
-void saveGame(const Pet &pet, const Item inventory[], int inventorySize) {
+// function to save the pet's current state to a local file
+void saveGame(const Pet &pet, const Item inventory[], int inventorySize)
+{
     ofstream saveFile("pet_save.txt");
     saveFile << pet.name << " " << pet.hunger << " " << pet.happiness << " "
-             << pet.health << " " << pet.energy << "\n";
-    for (int i = 0; i < inventorySize; ++i) {
-        saveFile << inventory[i].name << " " << inventory[i].effect << "\n";
+             << pet.health << " " << pet.energy << endl; // saves all status of pet attributes
+    for (int i = 0; i < inventorySize; ++i) 
+    {
+        saveFile << inventory[i].name << " " << inventory[i].effect << endl;
     }
-    saveFile.close();
-    cout << "Game saved successfully.\n";
+    saveFile.close(); // closes file
+    cout << "Game saved successfully. Come back to play with "<< pet.name<<" soon!" << endl;
 }
 
 // Load the pet's state from a file
@@ -153,7 +161,7 @@ bool loadGame(Pet &pet, Item inventory[], int inventorySize) {
             loadFile >> inventory[i].name >> inventory[i].effect;
         }
         loadFile.close();
-        cout << "Game loaded successfully.\n";
+        cout << "Game loaded successfully!" << endl;
         return true;
     }
     return false;

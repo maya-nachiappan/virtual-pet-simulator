@@ -29,13 +29,13 @@ struct Item {
     int effect; // The effect of the item on an attribute (e.g., hunger, happiness)
 };
 
-// Function prototypes
-void displayStatus(const Pet &pet);
-void performAction(Pet &pet, Item inventory[], int inventorySize);
-void decayAttributes(Pet &pet);
-void randomEvent(Pet &pet);
-void saveGame(const Pet &pet, const Item inventory[], int inventorySize);
-bool loadGame(Pet &pet, Item inventory[], int inventorySize);
+// Functions
+void displayStatus(const Pet &pet); // displays all pet attribute statuses
+void performAction(Pet &pet, Item inventory[], int inventorySize); // displays action menu for user
+void decayAttributes(Pet &pet); // decays pet attributes after every action
+void randomEvent(Pet &pet); // randomly generates pet event
+void saveGame(const Pet &pet, const Item inventory[], int inventorySize); // saves game file
+bool loadGame(Pet &pet, Item inventory[], int inventorySize); // loads game file
 
 } // namespace PetSim
 
