@@ -17,60 +17,75 @@ namespace PetSim {
 // Displays the status of each pet factor
 void displayStatus(const Pet &pet) 
 {
-    cout << "\n--- " << pet.name << "'s Status ---\n";
-    cout << "Hunger: " << pet.hunger << "/100\n";
-    cout << "Happiness: " << pet.happiness << "/100\n";
-    cout << "Health: " << pet.health << "/100\n";
-    cout << "Energy: " << pet.energy << "/100\n";
+    cout << "--- " << pet.name << "'s Status ---" << endl;
+    cout << "Hunger: " << pet.hunger << endl;
+    cout << "Happiness: " << pet.happiness << endl;
+    cout << "Health: " << pet.health << endl;
+    cout << "Energy: " << pet.energy << endl;
 }
 
 // function menu for performing actions with pet
 void performAction(Pet &pet, Item inventory[], int inventorySize) {
     int choice;
 
-    cout << "\nChoose an action:\n";
-    cout << "1. Feed " << pet.name << "\n";
-    cout << "2. Play with " << pet.name << "\n";
-    cout << "3. Rest " << pet.name << "\n";
-    cout << "4. Use inventory item\n";
-    cout << "5. Save and exit\n";
-    cout << "Enter your choice: ";
+    cout << "Choose an action to perform:" << endl;
+    cout << "1. Feed " << pet.name << endl;
+    cout << "2. Play with " << pet.name << endl;
+    cout << "3. Rest " << pet.name << endl;
+    cout << "4. Use an inventory item" << endl;
+    cout << "5. Save and exit game" << endl;
+    cout << "Enter your choice: " << endl;
     cin >> choice;
 
-    switch (choice) {
+    switch (choice) 
+    {
         case 1:
             pet.hunger += 20;
-            pet.energy -= 10;
+            pet.energy -= 5;
             if (pet.hunger > 100) pet.hunger = 100;
-            cout << pet.name << " feels less hungry.\n";
+            cout << pet.name << " feels quite full and not hungry anymore!" << endl;
             break;
         case 2:
             pet.happiness += 20;
-            pet.energy -= 15;
+            pet.energy -= 10;
             if (pet.happiness > 100) pet.happiness = 100;
-            cout << pet.name << " had fun playing!\n";
+            cout << pet.name << " had so much fun playing games with you!! good job!" << endl;
             break;
         case 3:
-            pet.energy += 30;
+            pet.energy += 25;
             pet.health += 10;
             if (pet.energy > 100) pet.energy = 100;
             if (pet.health > 100) pet.health = 100;
-            cout << pet.name << " feels rested.\n";
+            cout << pet.name << " had a nice nap and feels well rested!" << endl;
             break;
         case 4:
-            cout << "\nInventory:\n";
-            for (int i = 0; i < inventorySize; ++i) {
-                cout << i + 1 << ". " << inventory[i].name << " (Effect: " << inventory[i].effect << ")\n";
+            cout << "--- Inventory ---" << endl;
+            for (int i = 0; i < inventorySize; ++i)
+            {
+                cout << i + 1 << ". " << inventory[i].name << " (Effect: " << inventory[i].effect << ")" << endl;;
             }
             cout << "Choose an item to use: ";
             cin >> choice;
-            if (choice >= 1 && choice <= inventorySize) {
-                Item &item = inventory[choice - 1];
-                pet.hunger += item.effect; // Example: Feeding item reduces hunger
-                if (pet.hunger > 100) pet.hunger = 100;
-                cout << pet.name << " used " << item.name << "!\n";
-            } else {
-                cout << "Invalid choice.\n";
+            if (choice >= 1 && choice <= 3)
+            {
+                Item &item = inventory[choice - 1]; // Reduces inventory after usage
+                if (choice==1) // user choose treat
+                {
+                    pet.hunger += item.effect; // item reduces hunger
+                }
+                else if (choice ==2)
+                {
+                    pet.happiness += item.effect; // playing with toy increases happiness
+                }
+                else
+                {
+                    pet.health += item.effect; // medicine increases health
+                }
+                cout << pet.name << " used " << item.name << "!" << endl;
+            }
+            else
+            {
+                cout << "Invalid inventory choice." << endl;
             }
             break;
         case 5:
