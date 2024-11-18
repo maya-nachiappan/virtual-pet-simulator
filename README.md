@@ -22,19 +22,23 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
  - Win/Loss Conditions: The player wins if the happiness reaches 100% and loses if the pet dies.
 
 ## Gameplay
-1. Start a new game or load a saved game; if there are no saved games, a new game will be started.
+
+1. Start a new game or load a saved game; if there are no saved games, a new game will be started for you.
+   
 2. Perform actions to manage your individual pet’s needs:
    - Feed: Reduce hunger.
    - Play: Increase happiness.
    - Rest: Restore energy.
    - Use Inventory: Apply items to increase the health, happiness or energy of your pet.
+     
 3. Display and check on the pet's status to check:
    - Hunger
    - Happiness
    - Health
    - Energy
 (make sure not to let the levels drop! pet attributes will decay!)
-5. Win the game by keeping your pet happy and healthy the entire time and reaching maximum happiness
+
+4. Win the game by keeping your pet happy and healthy the entire time and reaching maximum happiness
 
 
 ## Installation
@@ -51,7 +55,7 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
 3. Run the game:
 - ./virtual_pet_simulator
 
-4. Enjoy!!
+4. Enjoy the simulator!!
 
 
 ## Demo
