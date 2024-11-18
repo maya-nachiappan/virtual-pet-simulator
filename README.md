@@ -11,7 +11,7 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
 - [Gameplay](#Gameplay)
 - [Installation](#Installation)
 - [Demo](#demo)
-- [License](https://github.com/maya-nachiappan/virtual-pet-simulator/tree/main?tab=MIT-1-ov-file)
+- [License](https://github.com/maya-nachiappan/virtual-pet-simulator/blob/main/LICENSE)
 
   
 ## Features
