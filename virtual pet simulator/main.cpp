@@ -15,50 +15,46 @@ using namespace PetSim;
 
 int main() {
     srand(static_cast<unsigned>(time(0))); // Seed random number generator
-
     Pet myPet;
-    char choice;
+    char userChoice;
     const int inventorySize = 3;
-    Item inventory[inventorySize] = {{"Treat", 15}, {"Toy", 20}, {"Medicine", 30}};
-
-    cout << "Welcome to the Virtual Pet Simulator!\n";
-    cout << "Would you like to load a saved game? (y/n): ";
-    cin >> choice;
-
-    if (choice == 'y' || choice == 'Y') {
+    Item inventory[inventorySize] = {{"Treat", 10}, {"Toy", 10}, {"Medicine", 20}}; // Sets a fixed amount of items in inventory
+    cout << "Welcome to the Virtual Pet Simulator!" << endl;
+    cout << "Would you like to load a saved game? (y/n):" << endl;
+    cin >> userChoice;
+    if (userChoice == 'y' || userChoice == 'Y') {
         if (!loadGame(myPet, inventory, inventorySize)) {
-            cout << "No saved game found. Starting a new game.\n";
-            choice = 'n';
+            cout << "You have no saved games. Starting a new game." << endl;
+            userChoice = 'n';
         }
     }
-
-    if (choice == 'n' || choice == 'N') {
-        cout << "Enter a name for your pet: ";
+    if (userChoice == 'n' || userChoice == 'N') 
+    {
+        cout << "What would you like to name your pet: ";
         cin >> myPet.name;
+        // Starting stats for pet attributes
         myPet.hunger = 50;
         myPet.happiness = 50;
         myPet.health = 50;
         myPet.energy = 50;
     }
-
     // Main game loop
-    while (true) {
-        displayStatus(myPet);
+       while (true) {
+           displayStatus(myPet);
 
-        // Check for win/lose conditions
-        if (myPet.health <= 0) {
-            cout << myPet.name << " has died. Game over!\n";
-            break;
-        }
-        if (myPet.happiness >= 100 && myPet.health >= 100) {
-            cout << myPet.name << " is thriving and incredibly happy! You win!\n";
-            break;
-        }
+           // Check for win/lose conditions
+           if (myPet.health <= 0) {
+               cout << myPet.name << " has died. Game over!" << endl; // User loses if Pet dies when health reaches 0
+               break;
+           }
+           if (myPet.happiness >= 100 && myPet.health >= 100) {
+               cout << myPet.name << " is very happy and healthy! You are a great owner, congratulations!!" << endl; // User wins if pet happiness and health reaches 100
+               break;
+           }
+           performAction(myPet, inventory, inventorySize); // User interacts with pet
+           decayAttributes(myPet); // Pet attributes continuously decay
+           randomEvent(myPet); // Randomly generated events affect pet
+       }
 
-        performAction(myPet, inventory, inventorySize);
-        decayAttributes(myPet);
-        randomEvent(myPet);
-    }
-
-    return 0;
-}
+       return 0;
+   }

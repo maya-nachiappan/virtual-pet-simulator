@@ -15,7 +15,8 @@ using namespace std;
 namespace PetSim {
 
 // Displays the status of each pet factor
-void displayStatus(const Pet &pet) {
+void displayStatus(const Pet &pet) 
+{
     cout << "\n--- " << pet.name << "'s Status ---\n";
     cout << "Hunger: " << pet.hunger << "/100\n";
     cout << "Happiness: " << pet.happiness << "/100\n";
