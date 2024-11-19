@@ -31,7 +31,7 @@ Welcome to the Virtual pet simulator game! This game allows players to take care
    - Rest: Restore energy.
    - Use Inventory: Apply items to increase the health, happiness or energy of your pet.
      
-3. Display and check on the pet's status to check:
+3. Display and check on the pet's status to monitor:
    - Hunger
    - Happiness
    - Health
